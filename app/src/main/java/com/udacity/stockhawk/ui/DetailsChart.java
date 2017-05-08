@@ -55,20 +55,22 @@ public class DetailsChart extends AppCompatActivity {
                 Log.e(TAG, "updated: " + list.toString());
 
                 ArrayList<BarEntry> entries = new ArrayList<BarEntry>();
+
                 int index = 0;
 
                 for(HistoricalQuote quote : list){
-                    entries.add(new BarEntry(index, quote.getVolume()));
+                    entries.add(new BarEntry(index, quote.getVolume(), quote.getDate().toString()));
                     index++;
                 }
 
-                BarDataSet dataSet = new BarDataSet(entries, "# time");
+                BarDataSet dataSet = new BarDataSet(entries, getString(R.string.chart_description_label));
 
                 BarChart chart = new BarChart(getApplicationContext());
                 setContentView(chart);
 
                 BarData barData = new BarData(dataSet);
                 chart.setData(barData);
+
 
                 //color template1
                 //        ColorTemplate.LIBERTY_COLORS;
@@ -78,7 +80,7 @@ public class DetailsChart extends AppCompatActivity {
                 //        ColorTemplate.VORDIPLOM_COLORS;
 
                 dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
-                chart.animateY(5000);
+                chart.animateY(2000);
             }
         }.execute(symbol);
 

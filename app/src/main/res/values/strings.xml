@@ -35,5 +35,6 @@
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
     <string name="toast_stock_error_loading_chart">Unable to load changes for stocks</string>
+    <string name="chart_description_label">Volume per month</string>
 
 </resources>
